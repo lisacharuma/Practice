@@ -10,13 +10,11 @@
 		<form method="POST" action="/courses">
 			<label for="name">Course Name:</label>
 			<input type="text" id="name" name="name" required>
-			<label for="student_id">Student ID:</label>
-			<input type="number" id="student_id" name="student_id" required>
 			<button type="submit">Add Course</button>
 		</form>
 		<ul>
 			{% for course in courses %}
-				<li>{{ course.name }} (Student ID: {{ course.student_id }})</li>
+				<li>{{ course.name }}</li>
 			{% endfor %}
 		</ul>
 	</body>

@@ -10,11 +10,22 @@
 		<form method="POST" action="/students">
 			<label for="name">Student Name:</label>
 			<input type="text" id="name" name="name" required>
+			<label for="courses">Select Courses:</label>
+			<select id="courses" name="courses" multiple>
+				{% for course in courses %}
+					<option value="{{ course.id }}">{{ course.name }}</option>
+				{% endfor %}
+			</select>
 			<button type="submit">Add Student</button>
 		</form>
 		<ul>
 			{% for student in students %}
 				<li>{{ student.name }}</li>
+				<ul>
+					{% for course in student.courses %}
+						<li>{{ course.name }}</li>
+					{% endfor %}
+				</ul>
 			{% endfor %}
 		</ul>
 	</body>
